@@ -42,10 +42,11 @@ flatpickr("#datetime-picker", options);
 
 startBtn.addEventListener("click", onDateClick);
 
-function onDateClick(){
-    timerId = setInterval(() => {
-     startBtn.disabled = true
+function onDateClick() {
+   startBtn.disabled = true
     dateInput.disabled = true
+    timerId = setInterval(() => {
+    
     const now = new Date()
         const timeLeft = userSelectedDate - now 
     
@@ -62,7 +63,7 @@ function onDateClick(){
         }
 const { days, hours, minutes, seconds } = convertMs(timeLeft);
 
-    daysEl.textContent = days;
+    daysEl.textContent = addLeadingZero(days);;
     hoursEl.textContent = addLeadingZero(hours);
     minEl.textContent = addLeadingZero(minutes);
     secEl.textContent = addLeadingZero(seconds);
